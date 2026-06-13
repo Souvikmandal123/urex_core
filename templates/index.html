@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h2 class="hero-title">Elevating Customer <span>Communication</span> & <span>Verification</span></h2>
+            <p class="hero-subtitle">Premium Third-Party Services for EV Mobility, Microfinance, and Contact Center Operations.</p>
+            <a href="{% url 'contact' %}" class="btn btn-primary">Partner With Us</a>
+        </div>
+        <div class="hero-glow"></div>
+    </header>
+
+    <!-- How It Works / Process Section -->
+    <section id="process" class="process-section" style="padding: 5rem 0;">
+        <div class="container">
+            <div class="section-header text-center">
+                <h3 class="section-title">Our Process</h3>
+                <div class="gold-divider"></div>
+            </div>
+            
+            <div class="reasons-grid">
+                <div class="reason-card glass-card">
+                    <div class="card-icon"><span class="gold-text" style="font-size: 2rem;">01</span></div>
+                    <h4 class="reason-title">Consultation & Setup</h4>
+                    <p class="reason-desc">We understand your specific needs, volume requirements, and configure our systems to align perfectly with your business goals.</p>
+                </div>
+                <div class="reason-card glass-card">
+                    <div class="card-icon"><span class="gold-text" style="font-size: 2rem;">02</span></div>
+                    <h4 class="reason-title">Execution & Calling</h4>
+                    <p class="reason-desc">Our trained professionals execute high-volume verification and support calls with accuracy, maintaining your brand's voice.</p>
+                </div>
+                <div class="reason-card glass-card">
+                    <div class="card-icon"><span class="gold-text" style="font-size: 2rem;">03</span></div>
+                    <h4 class="reason-title">Reporting & Delivery</h4>
+                    <p class="reason-desc">Receive detailed, transparent reports on KYC confirmations, lead qualifications, and customer satisfaction metrics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Summary Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h3 class="section-title">Our Specialized Services</h3>
+                <div class="gold-divider"></div>
+            </div>
+            
+            <div class="services-grid">
+                <!-- AngularJS ng-repeat for Services -->
+                {% verbatim %}
+                <div class="service-card glass-card hover-glow" ng-repeat="service in services">
+                    <div class="card-icon" ng-if="$index === 1">
+                        <img src="/static/img/kyc_shield.png" alt="KYC Shield" class="service-img-icon">
+                    </div>
+                    <div class="card-icon" ng-if="$index !== 1">
+                        <span class="icon-placeholder">✦</span>
+                    </div>
+                    <h4 class="service-title">{{ service.title }}</h4>
+                    <p class="service-desc">{{ service.description }}</p>
+                    <ul class="service-features">
+                        <li ng-repeat="feature in service.features">
+                            <span class="bullet"></span> {{ feature }}
+                        </li>
+                    </ul>
+                </div>
+                {% endverbatim %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

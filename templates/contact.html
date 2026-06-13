@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+    <!-- Page Header -->
+    <header class="page-header" style="padding-top: 150px; text-align: center; padding-bottom: 50px;">
+        <h2 class="hero-title">Get a <span>Quote</span></h2>
+        <div class="gold-divider" style="margin-top: 20px;"></div>
+    </header>
+
+    <section id="contact-form-section" class="contact-section" style="padding-bottom: 100px;">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info glass-card">
+                    <h3 class="service-title">Get In Touch</h3>
+                    <p class="service-desc" style="margin-bottom: 2rem;">Ready to scale your customer communications? Fill out the form or reach us directly.</p>
+                    
+                    <div class="info-block" style="margin-bottom: 1.5rem;">
+                        <h5 class="gold-text">Email Us</h5>
+                        <p><a href="mailto:Info@urexcoreprivatelimited.us" style="color: var(--text-primary); text-decoration: none;">Info@urexcoreprivatelimited.us</a></p>
+                    </div>
+
+                    <div class="info-block" style="margin-bottom: 1.5rem;">
+                        <h5 class="gold-text">Call or WhatsApp</h5>
+                        <p><a href="tel:+919831706233" style="color: var(--text-primary); text-decoration: none;">+91 98317 06233</a></p>
+                    </div>
+                    
+                    <div class="info-block" style="margin-bottom: 1.5rem;">
+                        <h5 class="gold-text">Leadership</h5>
+                        <p style="color: var(--text-secondary);">Bharat Thapa</p>
+                    </div>
+                    
+                    <div class="info-block">
+                        <h5 class="gold-text">Established</h5>
+                        <p style="color: var(--text-secondary);">2024</p>
+                    </div>
+                </div>
+
+                <!-- Quote Form -->
+                <div class="quote-form-wrapper glass-card">
+                    <form class="quote-form" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" name="company" class="form-control">
+                        </div>
+                        
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label for="service">Service Required</label>
+                            <select id="service" name="service" class="form-control" style="background-color: var(--black);">
+                                <option value="ev_scooter">EV Scooter Lead Verification & Support</option>
+                                <option value="women_loan">Women Loan Verification Process</option>
+                                <option value="contact_center">Third-Party Contact Center Operations</option>
+                                <option value="other">Other Inquiry</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label for="message">Message Details</label>
+                            <textarea id="message" name="message" rows="4" required class="form-control"></textarea>
+                        </div>
+                        
+                        <div class="form-submit" style="grid-column: 1 / -1; margin-top: 1rem;">
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Request</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
