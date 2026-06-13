@@ -907,6 +907,10 @@ section {
         font-size: 2.8rem;
     }
 
+    .logo-text {
+        font-size: 0.92rem;
+    }
+
     .hero-highlights,
     .impact-grid,
     .growth-grid {
@@ -1044,6 +1048,16 @@ section {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+.logo-text {
+    display: inline-block;
+    line-height: 1.1;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: none;
+    color: #ffffff;
+    white-space: nowrap;
 }
 
 .site-logo {
