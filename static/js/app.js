@@ -111,27 +111,48 @@ app.controller('MainController', function($scope, $interval) {
     ];
 
     $scope.testimonialIndex = 0;
-    var visibleCount = 3;
+    $scope.visibleCount = 3;
+    $scope.slideStep = 33.333;
     var slideInterval;
 
-    $scope.getVisibleTestimonials = function() {
-        var visible = [];
-        for (var i = 0; i < visibleCount; i++) {
-            visible.push($scope.testimonials[($scope.testimonialIndex + i) % $scope.testimonials.length]);
+    function updateVisibleCount() {
+        if (window.innerWidth < 768) {
+            $scope.visibleCount = 1;
+            $scope.slideStep = 100;
+        } else if (window.innerWidth < 992) {
+            $scope.visibleCount = 2;
+            $scope.slideStep = 50;
+        } else {
+            $scope.visibleCount = 3;
+            $scope.slideStep = 33.333;
         }
-        return visible;
-    };
+
+        $scope.slideMaxIndex = Math.max(0, $scope.testimonials.length - $scope.visibleCount);
+        if ($scope.testimonialIndex > $scope.slideMaxIndex) {
+            $scope.testimonialIndex = 0;
+        }
+    }
 
     $scope.nextTestimonial = function() {
-        $scope.testimonialIndex = ($scope.testimonialIndex + 1) % $scope.testimonials.length;
+        if ($scope.testimonialIndex >= $scope.slideMaxIndex) {
+            $scope.testimonialIndex = 0;
+        } else {
+            $scope.testimonialIndex += 1;
+        }
     };
 
     $scope.prevTestimonial = function() {
-        $scope.testimonialIndex = ($scope.testimonialIndex - 1 + $scope.testimonials.length) % $scope.testimonials.length;
+        if ($scope.testimonialIndex <= 0) {
+            $scope.testimonialIndex = $scope.slideMaxIndex;
+        } else {
+            $scope.testimonialIndex -= 1;
+        }
     };
 
     $scope.goToTestimonial = function(index) {
-        $scope.testimonialIndex = index;
+        if (index >= 0 && index <= $scope.slideMaxIndex) {
+            $scope.testimonialIndex = index;
+        }
     };
 
     function startCarousel() {
@@ -139,6 +160,11 @@ app.controller('MainController', function($scope, $interval) {
             $scope.nextTestimonial();
         }, 3000);
     }
+
+    updateVisibleCount();
+    window.addEventListener('resize', function() {
+        $scope.$applyAsync(updateVisibleCount);
+    });
 
     $scope.pauseCarousel = function() {
         if (slideInterval) {

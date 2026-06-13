@@ -8,11 +8,59 @@
     <header class="hero">
         <div class="hero-content">
             <h2 class="hero-title">Elevating Customer <span>Communication</span> & <span>Verification</span></h2>
-            <p class="hero-subtitle">Premium Third-Party Services for EV Mobility, Microfinance, and Contact Center Operations.</p>
+            <p class="hero-subtitle">Reliable contact center solutions tailored for EV mobility, microfinance, and customer verification workflows.</p>
+            <div class="hero-badge">Now expanding across new EV hubs and loan program operations with faster delivery and broader coverage.</div>
             <a href="{% url 'contact' %}" class="btn btn-primary">Partner With Us</a>
+
+            <div class="hero-highlights">
+                <div class="highlight-card">
+                    <strong>24/7 Call Coverage</strong>
+                    <span>Always-on support for high-volume operations.</span>
+                </div>
+                <div class="highlight-card">
+                    <strong>Verified KYC Process</strong>
+                    <span>Compliance-driven verification for every customer.</span>
+                </div>
+                <div class="highlight-card">
+                    <strong>Scalable Delivery</strong>
+                    <span>Flexible capacity for rapid business growth.</span>
+                </div>
+            </div>
         </div>
         <div class="hero-glow"></div>
     </header>
+
+    <section class="impact-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h3 class="section-title">Enterprise Contact Center Expertise</h3>
+                <div class="gold-divider"></div>
+                <p class="section-description">We combine human intelligence, compliance-first verification, and seamless customer support for EV, microfinance and sales enablement teams.</p>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-card glass-card">
+                    <div class="value-number">98%</div>
+                    <h4>Verification Accuracy</h4>
+                    <p>Rigorous checks and structured scripts keep your customer data precise.</p>
+                </div>
+                <div class="impact-card glass-card">
+                    <div class="value-number">30+</div>
+                    <h4>Trusted Partners</h4>
+                    <p>Serving EV and financial services brands with scalable contact center campaigns.</p>
+                </div>
+                <div class="impact-card glass-card">
+                    <div class="value-number">100k+</div>
+                    <h4>Calls Managed</h4>
+                    <p>Successful onboarding, follow-up, and verification calls delivered every month.</p>
+                </div>
+                <div class="impact-card glass-card">
+                    <div class="value-number">4.9/5</div>
+                    <h4>Customer Satisfaction</h4>
+                    <p>Consistent quality, disciplined reporting, and transparent partner collaboration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- How It Works / Process Section -->
     <section id="process" class="process-section" style="padding: 5rem 0;">
@@ -73,6 +121,58 @@
         </div>
     </section>
 
+    <section class="growth-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h3 class="section-title">Expanding Our Service Reach</h3>
+                <div class="gold-divider"></div>
+                <p class="section-description">We are scaling our contact center footprint to support more electric mobility brands, women-focused lending programs, and enterprise-grade verification campaigns.</p>
+            </div>
+            <div class="growth-grid">
+                <div class="growth-card glass-card">
+                    <h4>New Regional Hubs</h4>
+                    <p>Opening additional operations centers to deliver better coverage, lower response times, and stronger local support.</p>
+                </div>
+                <div class="growth-card glass-card">
+                    <h4>Enhanced Agent Capacity</h4>
+                    <p>Expanding our team of trained customer service specialists, quality auditors, and compliant verification staff.</p>
+                </div>
+                <div class="growth-card glass-card">
+                    <h4>Advanced Reporting</h4>
+                    <p>Providing real-time dashboards and transparent campaign insights for all onboarding, verification, and support activity.</p>
+                </div>
+            </div>
+            <div class="growth-cta text-center">
+                <p>Ready to grow with a trusted verification and contact center partner?</p>
+                <a href="{% url 'contact' %}" class="btn btn-secondary">Speak With Our Expansion Team</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="pillars-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h3 class="section-title">Our Contact Center Pillars</h3>
+                <div class="gold-divider"></div>
+                <p class="section-description">Built for reliability, compliance and growth, our service pillars deliver measurable outcomes for modern brands.</p>
+            </div>
+            <div class="pillars-grid">
+                <div class="pillar-card glass-card">
+                    <h4>Reliable Operations</h4>
+                    <p>24/7 support readiness, trained agents, and strict quality checks to keep your campaigns running without interruption.</p>
+                </div>
+                <div class="pillar-card glass-card">
+                    <h4>Compliance First</h4>
+                    <p>Every interaction is designed for KYC accuracy and data protection, giving your business secure verification confidence.</p>
+                </div>
+                <div class="pillar-card glass-card">
+                    <h4>Deep Industry Focus</h4>
+                    <p>EV mobility, finance and women-centric loan programs are core to our experience — we speak your sector language.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Testimonials Carousel Section -->
     <section id="testimonials" class="testimonials-section">
         <div class="container">
@@ -83,11 +183,9 @@
             </div>
 
             <div class="testimonial-carousel" ng-mouseenter="pauseCarousel()" ng-mouseleave="resumeCarousel()">
-                <button class="carousel-btn carousel-btn-prev" ng-click="prevTestimonial()" aria-label="Previous testimonials">&lsaquo;</button>
-
-                <div class="testimonial-track">
+                <div class="testimonial-track" ng-style="{'transform': 'translateX(-' + (testimonialIndex * slideStep) + '%)'}">
                     {% verbatim %}
-                    <div class="testimonial-card glass-card" ng-repeat="testimonial in getVisibleTestimonials() track by testimonial.name">
+                    <div class="testimonial-card glass-card" ng-repeat="testimonial in testimonials track by testimonial.name">
                         <div class="testimonial-stars">
                             <span ng-repeat="star in [1,2,3,4,5]" class="star" ng-class="{'filled': star <= testimonial.rating}">&#9733;</span>
                         </div>
@@ -102,19 +200,6 @@
                     </div>
                     {% endverbatim %}
                 </div>
-
-                <button class="carousel-btn carousel-btn-next" ng-click="nextTestimonial()" aria-label="Next testimonials">&rsaquo;</button>
-            </div>
-
-            <div class="carousel-dots">
-                {% verbatim %}
-                <button class="carousel-dot"
-                        ng-repeat="t in testimonials track by $index"
-                        ng-class="{'active': $index === testimonialIndex}"
-                        ng-click="goToTestimonial($index)"
-                        aria-label="Go to testimonial {{ $index + 1 }}">
-                </button>
-                {% endverbatim %}
             </div>
         </div>
     </section>
