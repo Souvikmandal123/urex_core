@@ -1,6 +1,6 @@
 var app = angular.module('urexcoreApp', []);
 
-app.controller('MainController', function($scope) {
+app.controller('MainController', function($scope, $interval) {
     // Services Data
     $scope.services = [
         {
@@ -58,4 +58,106 @@ app.controller('MainController', function($scope) {
             description: "Ensuring customer satisfaction and high-quality onboarding experiences."
         }
     ];
+
+    $scope.testimonials = [
+        {
+            name: "Rajesh Kumar",
+            role: "Operations Head, EV Mobility Startup",
+            quote: "Urexcore transformed our lead verification process. Their team handles thousands of onboarding calls monthly with remarkable accuracy and professionalism.",
+            rating: 5
+        },
+        {
+            name: "Priya Sharma",
+            role: "Director, Microfinance Institution",
+            quote: "The KYC verification and tele-verification services have significantly reduced our loan processing time. Their attention to compliance is outstanding.",
+            rating: 5
+        },
+        {
+            name: "Amit Patel",
+            role: "CEO, Electric Scooter Distributor",
+            quote: "From dealer coordination to warranty support calls, Urexcore has become an extension of our customer service team. Highly recommended for EV companies.",
+            rating: 5
+        },
+        {
+            name: "Sneha Reddy",
+            role: "Head of Customer Success, FinTech",
+            quote: "We partnered with Urexcore for welcome calling and customer satisfaction surveys. The quality of interactions consistently exceeds our expectations.",
+            rating: 5
+        },
+        {
+            name: "Vikram Singh",
+            role: "Regional Manager, Women Loan Program",
+            quote: "Their specialized approach to women-centric loan verification is sensitive, thorough, and efficient. Our approval rates improved while maintaining strict KYC standards.",
+            rating: 5
+        },
+        {
+            name: "Ananya Desai",
+            role: "VP Operations, Contact Center Outsourcing",
+            quote: "Scalable, reliable, and transparent reporting — Urexcore delivers on every promise. Their high-volume outbound capabilities are best-in-class.",
+            rating: 5
+        },
+        {
+            name: "Mohit Agarwal",
+            role: "Founder, EV Rental Platform",
+            quote: "Service follow-up and activation confirmation calls handled by Urexcore helped us reduce churn by 30%. Their team truly understands the EV mobility space.",
+            rating: 5
+        },
+        {
+            name: "Kavita Nair",
+            role: "Compliance Officer, NBFC",
+            quote: "Document confirmation and repayment reminder calls are executed with precision. Urexcore maintains the data security standards our industry demands.",
+            rating: 5
+        }
+    ];
+
+    $scope.testimonialIndex = 0;
+    var visibleCount = 3;
+    var slideInterval;
+
+    $scope.getVisibleTestimonials = function() {
+        var visible = [];
+        for (var i = 0; i < visibleCount; i++) {
+            visible.push($scope.testimonials[($scope.testimonialIndex + i) % $scope.testimonials.length]);
+        }
+        return visible;
+    };
+
+    $scope.nextTestimonial = function() {
+        $scope.testimonialIndex = ($scope.testimonialIndex + 1) % $scope.testimonials.length;
+    };
+
+    $scope.prevTestimonial = function() {
+        $scope.testimonialIndex = ($scope.testimonialIndex - 1 + $scope.testimonials.length) % $scope.testimonials.length;
+    };
+
+    $scope.goToTestimonial = function(index) {
+        $scope.testimonialIndex = index;
+    };
+
+    function startCarousel() {
+        slideInterval = $interval(function() {
+            $scope.nextTestimonial();
+        }, 3000);
+    }
+
+    $scope.pauseCarousel = function() {
+        if (slideInterval) {
+            $interval.cancel(slideInterval);
+            slideInterval = null;
+        }
+    };
+
+    $scope.resumeCarousel = function() {
+        if (!slideInterval) {
+            startCarousel();
+        }
+    };
+
+    startCarousel();
+
+    $scope.$on('$destroy', function() {
+        if (slideInterval) {
+            $interval.cancel(slideInterval);
+        }
+    });
 });

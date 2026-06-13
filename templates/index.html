@@ -72,4 +72,50 @@
             </div>
         </div>
     </section>
+
+    <!-- Testimonials Carousel Section -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h3 class="section-title">What Our <span class="highlight-text">Clients Say</span></h3>
+                <div class="gold-divider"></div>
+                <p class="testimonials-subtitle">Trusted by EV mobility companies, microfinance institutions, and contact center partners across India.</p>
+            </div>
+
+            <div class="testimonial-carousel" ng-mouseenter="pauseCarousel()" ng-mouseleave="resumeCarousel()">
+                <button class="carousel-btn carousel-btn-prev" ng-click="prevTestimonial()" aria-label="Previous testimonials">&lsaquo;</button>
+
+                <div class="testimonial-track">
+                    {% verbatim %}
+                    <div class="testimonial-card glass-card" ng-repeat="testimonial in getVisibleTestimonials() track by testimonial.name">
+                        <div class="testimonial-stars">
+                            <span ng-repeat="star in [1,2,3,4,5]" class="star" ng-class="{'filled': star <= testimonial.rating}">&#9733;</span>
+                        </div>
+                        <p class="testimonial-quote">&ldquo;{{ testimonial.quote }}&rdquo;</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">{{ testimonial.name.charAt(0) }}</div>
+                            <div>
+                                <h5 class="testimonial-name">{{ testimonial.name }}</h5>
+                                <p class="testimonial-role">{{ testimonial.role }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endverbatim %}
+                </div>
+
+                <button class="carousel-btn carousel-btn-next" ng-click="nextTestimonial()" aria-label="Next testimonials">&rsaquo;</button>
+            </div>
+
+            <div class="carousel-dots">
+                {% verbatim %}
+                <button class="carousel-dot"
+                        ng-repeat="t in testimonials track by $index"
+                        ng-class="{'active': $index === testimonialIndex}"
+                        ng-click="goToTestimonial($index)"
+                        aria-label="Go to testimonial {{ $index + 1 }}">
+                </button>
+                {% endverbatim %}
+            </div>
+        </div>
+    </section>
 {% endblock %}
