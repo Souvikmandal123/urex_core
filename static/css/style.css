@@ -145,13 +145,13 @@ a {
 
 /* --- Hero Section --- */
 .hero {
-    height: 100vh;
+    min-height: calc(100vh - 120px);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     text-align: center;
     position: relative;
-    padding-top: 80px; /* Offset for nav */
+    padding: 120px 0 80px;
     background: url('../img/hero_bg.png') center center/cover no-repeat;
     background-attachment: fixed;
 }
