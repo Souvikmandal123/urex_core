@@ -4,55 +4,69 @@
 {% block title %}About Us{% endblock %}
 
 {% block content %}
-    <!-- Page Header -->
-    <header class="page-header" style="padding-top: 150px; text-align: center; padding-bottom: 50px;">
-        <h2 class="hero-title">About <span>Urexcore</span></h2>
-        <div class="gold-divider" style="margin-top: 20px;"></div>
+
+    <!-- Page Hero Banner -->
+    <header class="about-hero">
+        <div class="about-hero-overlay"></div>
+        <img src="{% static 'img/about_bg.png' %}" alt="About Urexcore" class="about-hero-img">
+        <div class="about-hero-content">
+            <h2 class="hero-title">About <span>Urexcore</span></h2>
+            <div class="gold-divider" style="margin: 20px auto;"></div>
+            <p class="hero-subtitle">Your trusted partner in verification &amp; customer communication</p>
+        </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="about-section parallax-bg">
+    <!-- Who We Are -->
+    <section style="padding: 5rem 0;">
         <div class="container">
-            <div class="about-grid">
-                <div class="about-content glass-card">
-                    <p>
-                        Urexcore Private Limited operates as a premier third-party customer communication and verification service provider. We conduct high-volume outbound and inbound voice communications tailored for EV mobility companies, microfinance institutions, and women-focused loan programs.
-                    </p>
-                    <p>
-                        Our expertise spans customer onboarding, lead verification, KYC confirmation, customer support, and service-related interactions. We are dedicated to supporting these business operations efficiently, ensuring scalable and reliable call handling capabilities that drive growth and customer satisfaction.
-                    </p>
-                </div>
-                <div class="about-image-wrapper">
-                    <img src="{% static 'img/about_bg.png' %}" alt="Contact Center Operations" class="featured-image">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mission and Vision Section -->
-    <section id="mission-vision" style="padding: 5rem 0; background: rgba(0,0,0,0.3);">
-        <div class="container">
-            <div class="reasons-grid">
-                <div class="reason-card glass-card" style="text-align: left;">
-                    <h4 class="gold-text" style="font-size: 1.5rem; margin-bottom: 1rem;">Our Mission</h4>
-                    <p class="reason-desc" style="font-size: 1.1rem;">To deliver unparalleled, high-volume verification and customer communication services, bridging the gap between innovative mobility/finance platforms and their users through reliable, accurate, and professional interactions.</p>
-                </div>
-                <div class="reason-card glass-card" style="text-align: left;">
-                    <h4 class="gold-text" style="font-size: 1.5rem; margin-bottom: 1rem;">Our Vision</h4>
-                    <p class="reason-desc" style="font-size: 1.1rem;">To become the industry's most trusted third-party contact center partner, renowned for driving growth, ensuring seamless KYC compliance, and elevating the standard of customer support across India.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us Section -->
-    <section id="why-us" class="reasons-section" style="padding-bottom: 100px;">
-        <div class="container">
-            <div class="section-header text-center">
-                <h3 class="section-title">Why Choose Urexcore</h3>
+            <div class="section-header text-center" style="margin-bottom: 3rem;">
+                <h3 class="section-title">Who We <span style="background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Are</span></h3>
                 <div class="gold-divider"></div>
             </div>
-            
+            <div class="glass-card" style="max-width: 860px; margin: 0 auto; padding: 3rem;">
+                <p style="font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.9; text-align: justify;">
+                    Urexcore Private Limited operates as a premier third-party customer communication and verification service provider. We conduct high-volume outbound and inbound voice communications tailored for EV mobility companies, microfinance institutions, and women-focused loan programs.
+                </p>
+                <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.9; text-align: justify;">
+                    Our expertise spans customer onboarding, lead verification, KYC confirmation, customer support, and service-related interactions. We are dedicated to supporting these business operations efficiently, ensuring scalable and reliable call handling capabilities that drive growth and customer satisfaction.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section style="padding: 4rem 0; background: rgba(0,0,0,0.35);">
+        <div class="container">
+            <div class="section-header text-center" style="margin-bottom: 3rem;">
+                <h3 class="section-title">Mission &amp; <span style="background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Vision</span></h3>
+                <div class="gold-divider"></div>
+            </div>
+            <div class="about-mv-grid">
+                <div class="glass-card about-mv-card">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎯</div>
+                    <h4 class="gold-text" style="font-size: 1.4rem; margin-bottom: 1rem;">Our Mission</h4>
+                    <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; text-align: justify;">
+                        To deliver unparalleled, high-volume verification and customer communication services, bridging the gap between innovative mobility/finance platforms and their users through reliable, accurate, and professional interactions.
+                    </p>
+                </div>
+                <div class="glass-card about-mv-card">
+                    <div style="font-size: 2.5rem; margin-bottom: 1rem;">🚀</div>
+                    <h4 class="gold-text" style="font-size: 1.4rem; margin-bottom: 1rem;">Our Vision</h4>
+                    <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; text-align: justify;">
+                        To become the industry's most trusted third-party contact center partner, renowned for driving growth, ensuring seamless KYC compliance, and elevating the standard of customer support across India.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section style="padding: 5rem 0 100px;">
+        <div class="container">
+            <div class="section-header text-center" style="margin-bottom: 3rem;">
+                <h3 class="section-title">Why Choose <span style="background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Urexcore</span></h3>
+                <div class="gold-divider"></div>
+            </div>
             <div class="reasons-grid">
                 {% verbatim %}
                 <div class="reason-card glass-card" ng-repeat="reason in reasons">
@@ -63,4 +77,5 @@
             </div>
         </div>
     </section>
+
 {% endblock %}
