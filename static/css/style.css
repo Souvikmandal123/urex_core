@@ -467,16 +467,88 @@ section {
     .hero-title {
         font-size: 2.8rem;
     }
-    
+
+    /* Hide nav links by default on mobile */
     .nav-links {
-        display: none; /* In a full app, we'd add a hamburger menu */
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(5, 5, 5, 0.97);
+        backdrop-filter: blur(12px);
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        padding: 1rem 0;
+        border-top: 1px solid var(--glass-border);
+        z-index: 999;
     }
-    
+
+    /* Show when toggled open */
+    .nav-links.nav-open {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    }
+
+    /* Show hamburger on mobile */
+    .hamburger {
+        display: flex;
+    }
+
     .footer-info {
         justify-content: flex-start;
         flex-direction: column;
     }
 }
+
+/* --- Hamburger Button --- */
+.hamburger {
+    display: none; /* hidden on desktop */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1100;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: var(--gold-primary);
+    border-radius: 3px;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+    transform-origin: center;
+}
+
+/* Animate to X when active */
+.hamburger.is-active span:nth-child(1) {
+    transform: translateY(9.5px) rotate(45deg);
+}
+.hamburger.is-active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+.hamburger.is-active span:nth-child(3) {
+    transform: translateY(-9.5px) rotate(-45deg);
+}
+
 /* --- WhatsApp Float Icon --- */
 .whatsapp-float {
     position: fixed;
