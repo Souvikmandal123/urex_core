@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560">
+  <defs>
+    <linearGradient id="contactBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="highlightGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="560" rx="40" fill="url(#contactBg)" />
+  <circle cx="240" cy="160" r="90" fill="rgba(37,99,235,0.14)" />
+  <circle cx="560" cy="120" r="70" fill="rgba(96,165,250,0.12)" />
+  <rect x="180" y="230" width="320" height="240" rx="40" fill="#0d1627" stroke="#2563eb" stroke-width="6" />
+  <path d="M220 280 h240" stroke="#60a5fa" stroke-width="10" stroke-linecap="round" />
+  <path d="M220 330 h180" stroke="#93c5fd" stroke-width="10" stroke-linecap="round" />
+  <path d="M220 380 h220" stroke="#c7d2fe" stroke-width="10" stroke-linecap="round" />
+  <path d="M510 280 a20 20 0 0 1 20 20 v60 a20 20 0 0 1 -20 20 h-30 v-100 h30 z" fill="#2563eb" opacity="0.6" />
+  <path d="M560 245 l60 -40 l60 40 v140 l-60 40 l-60 -40 z" fill="rgba(96,165,250,0.18)" />
+  <circle cx="590" cy="340" r="18" fill="#c7d2fe" />
+  <circle cx="590" cy="340" r="10" fill="#0f172a" />
+  <path d="M330 420 c-18 18 -20 40 -18 70 h120 c2 -30 -2 -52 -18 -70" fill="rgba(37,99,235,0.16)" />
+  <text x="220" y="120" font-size="44" fill="#fff" font-family="Outfit, sans-serif" font-weight="800">Contact</text>
+  <text x="220" y="170" font-size="28" fill="#93c5fd" font-family="Outfit, sans-serif" font-weight="700">Trust built in every call.</text>
+  <text x="220" y="205" font-size="20" fill="#cbd5e1" font-family="Inter, sans-serif">Secure support, verification and response for your teams.</text>
+</svg>
